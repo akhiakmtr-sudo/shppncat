@@ -9,6 +9,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
+      // Prevent "process is not defined" error in browser which causes white screen
+      'process.env': {},
       // Stringify the API key to ensure it's properly injected during build
       'process.env.API_KEY': JSON.stringify(env.API_KEY),
     },
